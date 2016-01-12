@@ -1,0 +1,11 @@
+mysql:
+  restart: always
+  image: mysql/mysql-server:5.7
+  environment:
+    - MYSQL_RANDOM_ROOT_PASSWORD='yes'
+    - MYSQL_ONETIME_PASSWORD='yes'	
+    - MYSQL_DATABASE=mailserver
+    - MYSQL_USER=mailuser
+    - MYSQL_PASSWORD=${MAILUSER_MYSQL_PASSWORD}
+  volumes:
+  - ${MYSQL_DATA_DIR}:/var/lib/mysql
