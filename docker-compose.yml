@@ -3,9 +3,10 @@ mysql:
   image: mysql/mysql-server:5.7
   environment:
     - MYSQL_RANDOM_ROOT_PASSWORD='yes'
-    - MYSQL_ONETIME_PASSWORD='yes'	
+    - MYSQL_ONETIME_PASSWORD='yes'
     - MYSQL_DATABASE=mailserver
     - MYSQL_USER=mailuser
-    - MYSQL_PASSWORD=${MAILUSER_MYSQL_PASSWORD}
+    - MYSQL_PASSWORD=${ISPMAIL_MAILUSER_MYSQL_PASSWORD}
   volumes:
-  - ${MYSQL_DATA_DIR}:/var/lib/mysql
+  - ${ISPMAIL_MYSQL_DATA_DIR}:/var/lib/mysql
+  - /home/core/ispmail/mysql:/docker-entrypoint-initdb.d
