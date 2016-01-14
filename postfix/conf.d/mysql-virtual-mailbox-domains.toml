@@ -1,0 +1,7 @@
+[template]
+src = "mysql-virtual-mailbox-domains.cf.tmpl"
+dest = "/etc/postfix/mysql-virtual-mailbox-domains.cf"
+keys = [
+    "ISPMAIL_MYSQL_USER",
+    "ISPMAIL_MYSQL_PASSWORD",
+]
