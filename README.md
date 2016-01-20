@@ -32,10 +32,11 @@ On a brand new machine with docker installed getting up and running should be as
 
 If you want to use a container orchestration suite such as Rancher, Kubernetes, or Docker Control Plane you'll need to generate the configuration for those on your own.
 
-### Major Differences
+### Major Differences & Notes
 
 In several places I diverged from the tutorial where it made sense. 
 
 * MySQL is 5.7 not 5.5. There isn't a compelling reason to need to track Debian's version of MySQL, when a more up-to-date version maintained directly by the MySQL team with which to work. 
+* Postfix runs with the -d flag. This is considered bad practice in production, but as far as I can tell is just fine while we're capturing that output to logging from the container anyway.
 
 
