@@ -6,7 +6,17 @@ mysql:
     - MYSQL_ONETIME_PASSWORD='yes'
     - MYSQL_DATABASE=mailserver
     - MYSQL_USER=mailuser
-    - MYSQL_PASSWORD=${ISPMAIL_MAILUSER_MYSQL_PASSWORD}
+    - MYSQL_PASSWORD=${ISPMAIL_MYSQL_PASSWORD}
   volumes:
   - ${ISPMAIL_MYSQL_DATA_DIR}:/var/lib/mysql
   - /home/core/ispmail/mysql:/docker-entrypoint-initdb.d
+postfix:
+  restart: always
+  image stresler/ispmail-postfix
+  environment: 
+    - ISPMAIL_MYSQL_PASSWORD=${ISPMAIL_MYSQL_PASSWORD}
+    - ISPMAIL_MYSQL_USER=${ISPMAIL_MYSQL_USER}
+  volumes:
+  - ${ISPMAIL_POSTFIX_LOG}:/var/log/postfix
+  - ${ISPMAIL_POSTFIX_SPOOL}:/var/spool/postfix
+    

@@ -1,5 +1,5 @@
-user = {{getv "ISPMAIL_MYSQL_USER"}}
-password = {{getv "ISPMAIL_MYSQL_PASSWORD"}}
+user = {{getenv "ISPMAIL_MYSQL_USER"}}
+password = {{getenv "ISPMAIL_MYSQL_PASSWORD"}}
 hosts = mysql
 dbname = mailserver
 query = SELECT 1 FROM virtual_domains WHERE name='%s'

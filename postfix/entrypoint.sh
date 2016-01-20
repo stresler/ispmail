@@ -4,4 +4,4 @@
 confd -onetime -backend env
 
 # Start Postfix
-service postfix start
+exec /usr/lib/postfix/master -c /etc/postfix -d 2>&1
