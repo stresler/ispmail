@@ -12,11 +12,12 @@ mysql:
   - /home/core/ispmail/mysql:/docker-entrypoint-initdb.d
 postfix:
   restart: always
-  image stresler/ispmail-postfix
+  image: stresler/ispmail-postfix
   environment: 
     - ISPMAIL_MYSQL_PASSWORD=${ISPMAIL_MYSQL_PASSWORD}
     - ISPMAIL_MYSQL_USER=${ISPMAIL_MYSQL_USER}
   volumes:
   - ${ISPMAIL_POSTFIX_LOG}:/var/log/postfix
   - ${ISPMAIL_POSTFIX_SPOOL}:/var/spool/postfix
-    
+dovecot:
+spamassassin:    

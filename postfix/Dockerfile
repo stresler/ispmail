@@ -11,10 +11,10 @@ COPY supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN \
   apt-get update -q && \
   apt-get install -qy \
-  postfix \
-  postfix-mysql \
-  supervisor \
-  wget && \
+    postfix \
+    postfix-mysql \
+    supervisor \
+    wget && \
   wget https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 && \
   mv confd-${CONFD_VERSION}-linux-amd64 /usr/bin/confd && \
   chmod +x  /usr/bin/confd && \
