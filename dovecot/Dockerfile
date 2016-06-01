@@ -8,9 +8,16 @@ COPY templates/* /etc/confd/templates/
 COPY entrypoint.sh /entrypoint.sh
 
 RUN \
+  chmod +x /entrypoint.sh && \
   apt-get update -q && \
   apt-get install -qy \
     dovecot-mysql \
     dovecot-imapd \
     dovecot-managesieved \
     dovecot-lmtpd && \
+  groupadd -g 5000 vmail && \
+  useradd -g vmail -u 5000 vmail -d /var/vmail -m && \
+  sed -i "s/\!include auth-system.conf.ext/#\!include auth-system.conf.ext/" /etc/dovecot/conf.d/10-auth.conf && \
+  sed -i "s/#\!include auth-sql.conf.ext/\!include auth-sql.conf.ext/" /etc/dovecot/conf.d/10-auth.conf && \
+  
+  

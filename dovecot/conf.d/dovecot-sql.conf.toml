@@ -1,0 +1,9 @@
+[template]
+src = "dovecot-sql.conf.tmpl"
+dest = "/etc/dovecot/dovecot.sql.conf"
+keys = [
+  "MYSQL_SERVER",
+  "ISPMAIL_MYSQL_USER",
+  "ISPMAIL_MYSQL_PASSWORD", 
+  "ISPMAIL_MYSQL_DBNAME",
+] 
