@@ -1,4 +1,0 @@
-driver = mysql
-connect = host={{getenv ISPMAIL_MYSQL_SERVER}} dbname={{getenv ISPMAIL_MYSQL_DBNAME}} user={{ISPMAIL_MYSQL_USER}} password={{getenv ISPMAIL_MYSQL_PASS}}
-default_pass_scheme = SHA256-CRYPT
-password_query = SELECT email as user, password FROM virtual_users WHERE email='%u';
